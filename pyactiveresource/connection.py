@@ -263,11 +263,11 @@ class Connection(object):
         if self.auth:
             # Insert basic authentication header
             request.add_header('Authorization', 'Basic ' + self.auth)
-        if request.headers:
-            ## Django has a MergeDict which does not play nice - depricated in later versions of Django.
-            header_string = '\n'.join([':'.join((k, v)) for k, v in request.headers])
-
-            self.log.debug('request-headers:%s', header_string)
+        # if request.headers:
+        #     ## Django has a MergeDict which does not play nice - depricated in later versions of Django.
+        #     header_string = '\n'.join([':'.join((k, v)) for k, v in request.headers])
+        #
+        #     self.log.debug('request-headers:%s', header_string)
         if data:
             request.add_header('Content-Type', self.format.mime_type)
             request.data = data
