@@ -260,7 +260,7 @@ class ResourceMeta(type):
         return cls._headers
 
     def set_headers(cls, value):
-        cls._headers = value
+        cls._headers = dict(value)
     
     headers = property(get_headers, set_headers, None,
                        'HTTP headers.')
