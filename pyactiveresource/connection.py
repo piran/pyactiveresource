@@ -264,6 +264,7 @@ class Connection(object):
             # Insert basic authentication header
             request.add_header('Authorization', 'Basic ' + self.auth)
         if request.headers:
+            request.headers = dict(request.headers)
             # ## Django has a MergeDict which does not play nice - depricated in later versions of Django.
             # header_string = '\n'.join([':'.join((k, v)) for k, v in request.headers])
             self.log.debug('request-headers:%s', request.headers)
